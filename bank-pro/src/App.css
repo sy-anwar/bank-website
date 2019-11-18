@@ -1,0 +1,64 @@
+.navbar{
+  padding:.5rem 0rem;
+}
+
+.greetings{
+  font-family: sans-serif;
+  padding-top: 1rem;
+}
+
+.logout{
+  padding-right: 0rem;
+  padding-left:35vh;
+}
+
+.App {
+  text-align: center;
+  padding: 5%;
+}
+
+.Login-header {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 365px;
+  padding: 30px;
+  margin: 15vh auto;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 1px -1px 3px 0px #00000033, 
+              -1px 2px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+#noRekening{
+	-webkit-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	height: 45px;
+}
+
+#button_login{
+  width: 100%; 
+  padding: 0.9rem 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  border-color: rgb(25,25,112);
+  font-family: 'Raleway';
+  font-size: 13px;
+  background: rgb(25,25,112);
+  color:white;
+  cursor: pointer;
+}
+
+.makeMiddle{
+  margin: 0 auto;
+}
