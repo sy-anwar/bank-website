@@ -4,6 +4,7 @@ import './App.css';
 import TransactionHistory from './TransactionHistory.js';
 import Homepage from './Homepage.js';
 import Login from './Login.js';
+import Transfer from './Transfer.js';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/homepage" component={Homepage} />
           <Route exact path="/transaction" component={TransactionHistory} />
+          <Route exact path="/transfer" component={Transfer}/>
         </div>
       </Router>
   );

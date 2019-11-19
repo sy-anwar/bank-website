@@ -3,6 +3,44 @@ import Header from './Header.js';
 import './App.css';
 
 function TransactionHistory(props) {
+  
+  // SOAP Request
+  // <?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  //     <SOAP-ENV:Header/>
+  //     <S:Body xmlns:ns2="http://BankWebService/">
+  //         <ns2:getAccountDetail>
+  //             <accountNumber>30244228930887</accountNumber>
+  //         </ns2:getAccountDetail>
+  //     </S:Body>
+  // </S:Envelope>
+  
+  // SOAP Response
+  // <?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  //     <SOAP-ENV:Header/>
+  //     <S:Body xmlns:ns2="http://BankWebService/">
+  //         <ns2:getAccountDetailResponse>
+  //             <return>
+  //                 <userName>Robbie McKune</userName>
+  //                 <accountNumber>30244228930887</accountNumber>
+  //                 <balance>9986451.0</balance>
+  //                 <type>DEBIT</type>
+  //                 <amount>12213.0</amount>
+  //                 <accNumTrx>6709601272029178223</accNumTrx>
+  //                 <transactionTime>2019-11-18 00:46:32</transactionTime>
+  //             </return>
+  //             <return>
+  //                 <userName>Robbie McKune</userName>
+  //                 <accountNumber>30244228930887</accountNumber>
+  //                 <balance>9986451.0</balance>
+  //                 <type>DEBIT</type>
+  //                 <amount>12213.0</amount>
+  //                 <accNumTrx>6709601272029178223</accNumTrx>
+  //                 <transactionTime>2019-11-18 00:46:32</transactionTime>
+  //             </return>
+  //         </ns2:getAccountDetailResponse>
+  //     </S:Body>
+  // </S:Envelope>    
+
   return (
     <div>
       <Header />

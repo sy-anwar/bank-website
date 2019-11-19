@@ -16,7 +16,7 @@ function Header() {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item ml-4">
-                        <Link to="/homepage">Transfer</Link>
+                        <Link to="/transfer">Transfer</Link>
                     </li>
                     <li class="nav-item ml-4">
                         <Link to="/transaction">Transaction History</Link>
