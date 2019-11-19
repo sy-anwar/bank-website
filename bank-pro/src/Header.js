@@ -6,31 +6,30 @@ function Header() {
   return (
 
     <div className="Header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top navbar-center">
-            <div class="navbar-collapse collapse w-100 dual-collapse2 order-0 order-md-0">
-                <ul class="navbar-nav ml-auto text-center">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Transfer</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="mx-auto my-2 order-1 order-md-1 position-relative">
-                <Link to="/homepage"><img src="Picture1.png" class="rounded-circle"></img></Link>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+            <div class="ml-2">
+                <Link to="/homepage"><img src="tesuto.png"></img></Link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item mr-auto">
-                        <Link to="/transaction" activeClassName="nav-link">Transaction History</Link>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item ml-4">
+                        <Link to="/homepage">Transfer</Link>
                     </li>
-                    <li class="nav-item mr-auto logout">
-                        <a class="nav-link" href="#">Logout</a>
+                    <li class="nav-item ml-4">
+                        <Link to="/transaction">Transaction History</Link>
+                    </li>
+                    <li class="nav-item">
+                        <span class="navbar-right">
+                            <Link to="/transaction">Logout</Link>
+                        </span>
+                        
                     </li>
                 </ul>
             </div>
-</nav>
+        </nav>
     </div>
   )
 }
