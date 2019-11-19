@@ -1,37 +1,30 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { Navbar, Nav } from 'react-bootstrap';
 
-function Header() {
-  return (
-
-    <div className="Header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-            <div class="ml-2">
-                <Link to="/homepage"><img src="tesuto.png"></img></Link>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+class Header extends React.Component{
+    render(){
+        return (
+            <div className="Header">
+                <Navbar bg="light" expand="lg">
+                    <Navbar.Brand href="/homepage">
+                        <Link to="/homepage"><img src="tesuto.png"></img></Link>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                        <Nav.Link href="/transfer">Transfer</Nav.Link>
+                        <Nav.Link href="/transaction">Transaction History</Nav.Link>
+                        </Nav>
+                        <Nav className="ml-auto">
+                            <Nav.Link href="/">Logout</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>       
             </div>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item ml-4">
-                        <Link to="/transfer">Transfer</Link>
-                    </li>
-                    <li class="nav-item ml-4">
-                        <Link to="/transaction">Transaction History</Link>
-                    </li>
-                    <li class="nav-item">
-                        <span class="navbar-right">
-                            <Link to="/transaction">Logout</Link>
-                        </span>
-                        
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-  )
+          );
+    }
 }
 
 export default Header;

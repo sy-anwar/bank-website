@@ -1,7 +1,21 @@
 import React from 'react';
 import './App.css';
 
-function Login() {
+class Login extends React.Component{
+  render(){
+    return (
+      <div className="row">
+        <header className="Login-header col-lg-4">
+        <img src="logo.png"></img>
+          <form>
+            <input type= "text" name="noRekening" id ="noRekening"  placeholder="Nomor Rekening" required/>
+            <button id = "button_login">Login</button>
+          </form>
+        </header>
+      </div>
+    );
+  }
+}
   
   // SOAP Request
   // <?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
@@ -24,17 +38,5 @@ function Login() {
   // </S:Envelope>
 
   
-  return (
-    <div className="row">
-      <header className="Login-header col-lg-4">
-      <img src="logo.png"></img>
-        <form>
-          <input type= "text" name="noRekening" id ="noRekening"  placeholder="Nomor Rekening" required/>
-          <button id = "button_login">Login</button>
-        </form>
-      </header>
-    </div>
-  )
-}
 
 export default Login;

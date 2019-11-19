@@ -6,8 +6,11 @@ import Homepage from './Homepage.js';
 import Login from './Login.js';
 import Transfer from './Transfer.js';
 
-function App() {
-  return (
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+class App extends React.Component{
+  render(){
+    return (
       <Router>
         <div>
           <Route exact path="/" component={Login} />
@@ -16,7 +19,8 @@ function App() {
           <Route exact path="/transfer" component={Transfer}/>
         </div>
       </Router>
-  );
+    );
+  }
 }
 
 export default App;
