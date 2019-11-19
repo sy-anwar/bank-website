@@ -1,10 +1,10 @@
-.navbar{
-  padding:.5rem 0rem;
-}
-
 .greetings{
   font-family: sans-serif;
+  font-size: 50px;
+  text-align: center;
   padding-top: 1rem;
+  margin-bottom: 0.1rem;
+
 }
 
 .logout{
@@ -46,7 +46,14 @@
 	margin-bottom: 10px;
 	height: 45px;
 }
-
+#noRekeningTujuan {
+  width: 100%; 
+  margin-top: 0 rem;
+  margin-bottom: 3rem;
+  padding: 0.7rem 1rem; 
+  border: 1px solid #ccc; 
+  border-radius: 0.3rem;
+}
 #button_login{
   width: 100%; 
   padding: 0.9rem 0.9rem;
@@ -64,6 +71,14 @@
 #button_login:hover{
   background: rgb(119, 106, 181);
 }
-.makeMiddle{
+
+hr{
   margin: 0 auto;
+  padding-bottom: 5rem;
+  width: 20%;
+}
+
+.transfer{
+  padding-top: 10rem;
+  height: 50%;
 }

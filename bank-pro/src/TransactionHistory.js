@@ -3,6 +3,46 @@ import Header from './Header.js';
 import './App.css';
 
 class TransactionHistory extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
+  reqWBS(){
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('GET','http://localhost:8080/BankWebService/',true);
+
+        //SOAP REQUEST
+        var soapReq = 
+          '<?xml version="1.0" encoding="UTF-8"?>' + 
+          '<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">'
+          +'<SOAP-ENV:Header/>'
+          +'<S:Body xmlns:ns2="http://BankWebService/">'
+            +  '<ns2:validateAccountNumber>'
+            +'<accountNumber>' + this.state.inputValue + '</accountNumber>'
+              +'</ns2:validateAccountNumber>'
+        +'</S:Body>'
+        +'</S:Envelope>';
+
+        xmlhttp.onreadystatechange = function(){
+          if(xmlhttp.readyState === 4){
+            if (xmlhttp.status === 200){
+              alert('Response: ' + xmlhttp.response);
+              // result: xmlhttp.response.text;
+              // <Link to="/homepage"></Link>;
+            }
+          }
+        }
+        xmlhttp.setRequestHeader('Content-Type','text/xml');
+  }
+  
+  renderTable(){
+    // var i, x, xmlRes, table;
+    // xmlRes = xml.responseXML;
+    // table ="<tr><td id=\"rekening\" class=\" table-striped\">a</td>
+    // <td id="waktu">a</td>
+    // <td id="tipe" class="table-striped">a</td>
+    // <td id="nominal">a</td></tr>";
+  }
   render(){
     return (
       <div>

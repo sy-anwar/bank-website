@@ -13,7 +13,7 @@ class Homepage extends React.Component{
                         
                     </div>
                     <div class="col-md-auto">
-                        <h1 class="greetings">Hello, user!</h1>
+                      <p class="greetings">Hello, <span id="username">user!</span></p>
                     </div>
                     <div class="col col-lg-2">     
                     </div>
