@@ -41,7 +41,8 @@ class Modals extends React.Component {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleClose}>Close</Button>
-              <Button variant="primary" onClick={this.handleClose}>Save changes</Button>
+              {/* Yang di bawah ini mestinya send request SOAP */}
+              <Button variant="primary" onClick={this.handleClose}>Save changes</Button> 
             </Modal.Footer>
           </Modal>
         </div>
