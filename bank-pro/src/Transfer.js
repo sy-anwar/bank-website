@@ -40,13 +40,13 @@ class Transfer extends React.Component {
             <div class="col-md-auto">
               <h1 class="greetings">Transfer</h1>
               <hr></hr>
-              <form class="transfer-box">
+              <form class="box">
                 <input type= "text" name="noRekeningTujuan" id ="noRekeningTujuan"  placeholder="Rekening Tujuan" required/>
                 <InputGroup className="mb-5">
                   <InputGroup.Prepend>
                     <InputGroup.Text>Rp</InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl id="Nominal" aria-label="Amount (to the nearest dollar)" />
+                  <FormControl id="Nominal" aria-label="Amount (to the nearest rupiah)" />
                   <InputGroup.Append>
                     <InputGroup.Text>.00</InputGroup.Text>
                   </InputGroup.Append>
