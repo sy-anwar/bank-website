@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import TransactionHistory from './TransactionHistory.js';
 import Homepage from './Homepage.js';
@@ -8,8 +8,15 @@ import Transfer from './Transfer.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class App extends React.Component{
-  render(){
+/**
+ * Class App.
+ */
+class App extends React.Component {
+  /**
+   * render method.
+   * @return {*} component.
+   */
+  render() {
     return (
       <Router>
         <div>
