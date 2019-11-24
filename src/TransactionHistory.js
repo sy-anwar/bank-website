@@ -55,13 +55,14 @@ class TransactionHistory extends React.Component {
               //Inner loop to create children
               table += '<tbody><tr>';
               var rekening = detail[i].getElementsByTagName('accNumTrx')[0].innerHTML;
+              console.log(rekening);
               var waktu = detail[i].getElementsByTagName('transactionTime')[0].innerHTML;
               var tipe = detail[i].getElementsByTagName('type')[0].innerHTML;
               var nominal = detail[i].getElementsByTagName('amount')[0].innerHTML;
-              table += '<td id="rekening" className=" table-striped">' + {rekening} + '</td>';
-              table += '<td id="waktu">' + {waktu} + '</td>';
-              table += '<td id="tipe" className="table-striped">' + {tipe} + '</td>';
-              table += '<td id="nominal">' + {nominal} + '</td>'  ;
+              table += '<td id="rekening" className=" table-striped">' + rekening + '</td>';
+              table += '<td id="waktu">' + waktu + '</td>';
+              table += '<td id="tipe" className="table-striped">' + tipe + '</td>';
+              table += '<td id="nominal">' + nominal + '</td>'  ;
               table += '</tr></tbody>';
             }
             //Create the parent and add the children
@@ -101,7 +102,7 @@ class TransactionHistory extends React.Component {
                   table-dark table-bordered table-hover">
                 <thead className="thead-light">
                   <tr>
-                    <th scope="col">Rekening</th>
+                    <th scope="col">Rekening Tujuan</th>
                     <th scope="col">Waktu</th>
                     <th scope="col">Tipe</th>
                     <th scope="col">Nominal</th>
@@ -119,34 +120,6 @@ class TransactionHistory extends React.Component {
     );
   }
 }
-
-
-// SOAP Response
-// <?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-//     <SOAP-ENV:Header/>
-//     <S:Body xmlns:ns2="http://BankWebService/">
-//         <ns2:getAccountDetailResponse>
-//             <return>
-//                 <userName>Robbie McKune</userName>
-//                 <accountNumber>30244228930887</accountNumber>
-//                 <balance>9986451.0</balance>
-//                 <type>DEBIT</type>
-//                 <amount>12213.0</amount>
-//                 <accNumTrx>6709601272029178223</accNumTrx>
-//                 <transactionTime>2019-11-18 00:46:32</transactionTime>
-//             </return>
-//             <return>
-//                 <userName>Robbie McKune</userName>
-//                 <accountNumber>30244228930887</accountNumber>
-//                 <balance>9986451.0</balance>
-//                 <type>DEBIT</type>
-//                 <amount>12213.0</amount>
-//                 <accNumTrx>6709601272029178223</accNumTrx>
-//                 <transactionTime>2019-11-18 00:46:32</transactionTime>
-//             </return>
-//         </ns2:getAccountDetailResponse>
-//     </S:Body>
-// </S:Envelope>
 
 
 export default TransactionHistory;
