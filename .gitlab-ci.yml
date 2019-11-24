@@ -1,0 +1,10 @@
+stages:
+  - lint
+
+before_script:
+  - npm install
+
+eslint:
+  stage: -lint
+  script:
+    - ./node_modules/.bin/eslint .

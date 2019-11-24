@@ -1,4 +1,4 @@
-## How to Start React
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 1. Git clone to your local
 2. Direct to bank-pro
