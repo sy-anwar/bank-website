@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header.js';
 import './App.css';
+import Cookies from 'universal-cookie';
 
 /**
  * Class TransactionHistory.
@@ -21,7 +22,14 @@ class TransactionHistory extends React.Component {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST','http://localhost:8888/WebServiceBank?wsdl',true);
 
+    // get cookie?
+    var cookies = new Cookies();
     var accNum = 0;
+
+    accNum = cookies.get('accountNumber');
+    console.log(accNum);
+    var uName = '';
+    var bal = 0;
     //SOAP REQUEST
     var soapReq = 
       `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kas="http://kasatukelima.wsbank/">
@@ -31,32 +39,46 @@ class TransactionHistory extends React.Component {
               <accountNumber>` + accNum + `</accountNumber>
             </kas:getAccountDetail>
         </soapenv:Body>
-      </soapenv:Envelope>`
+      </soapenv:Envelope>`;
 
-    xmlhttp.setRequestHeader('Content-Type','text/xml8');
-    xmlhttp.send(soapReq);
-    
     xmlhttp.onreadystatechange = function(){
       if(xmlhttp.readyState === 4){
         if (xmlhttp.status === 200){
-          console.log('Response: ' + xmlhttp.responseText);
-          // return <Redirect to="/homepage"></Redirect>;
-          // this.props.history.push("/homepage");
-        }
+          var parser = new DOMParser();
+          var xml = parser.parseFromString(xmlhttp.response, 'text/xml');
+          console.log(xml);
+          var detail = xml.getElementsByTagName('return');
+          let table = "";
+
+          if (detail) {
+            for (let i = 0; i < detail.length; i++) {
+              //Inner loop to create children
+              table += '<tbody><tr>';
+              var rekening = detail[i].getElementsByTagName('accNumTrx')[0].innerHTML;
+              var waktu = detail[i].getElementsByTagName('transactionTime')[0].innerHTML;
+              var tipe = detail[i].getElementsByTagName('type')[0].innerHTML;
+              var nominal = detail[i].getElementsByTagName('amount')[0].innerHTML;
+              table += '<td id="rekening" className=" table-striped">' + {rekening} + '</td>';
+              table += '<td id="waktu">' + {waktu} + '</td>';
+              table += '<td id="tipe" className="table-striped">' + {tipe} + '</td>';
+              table += '<td id="nominal">' + {nominal} + '</td>'  ;
+              table += '</tr></tbody>';
+            }
+            //Create the parent and add the children
+          }
+          document.getElementById('tabelTrx').innerHTML += table;
+        } 
       }
     }
+    xmlhttp.setRequestHeader('Content-Type','text/xml');
+    xmlhttp.send(soapReq);
   }
 
   /**
    * renderTable method.
    */
   renderTable() {
-    // var i, x, xmlRes, table;
-    // xmlRes = xml.responseXML;
-    // table ="<tr><td id=\"rekening\" class=\" table-striped\">a</td>
-    // <td id="waktu">a</td>
-    // <td id="tipe" class="table-striped">a</td>
-    // <td id="nominal">a</td></tr>";
+  
   }
 
   /**
@@ -75,7 +97,7 @@ class TransactionHistory extends React.Component {
             <div className="col-md-auto">
               <h1 className="greetings">Transaction History</h1>
               <hr></hr>
-              <table className="table responsive
+              <table id="tabelTrx"  className="table responsive
                   table-dark table-bordered table-hover">
                 <thead className="thead-light">
                   <tr>
@@ -85,14 +107,6 @@ class TransactionHistory extends React.Component {
                     <th scope="col">Nominal</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td id="rekening" className=" table-striped">a</td>
-                    <td id="waktu">a</td>
-                    <td id="tipe" className="table-striped">a</td>
-                    <td id="nominal">a</td>
-                  </tr>
-                </tbody>
               </table>
             </div>
             <div className="col col-lg-2">

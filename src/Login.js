@@ -28,6 +28,7 @@ class Login extends React.Component{
     var accountNumber = this.state.accountNumber;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST','http://localhost:8888/WebServiceBank?wsdl',true);
+    cookies.set('accountNumber', accountNumber, { path: '/' });
 
     // SOAP REQUEST
     var soapReq = 
@@ -47,8 +48,7 @@ class Login extends React.Component{
           var xml = parser.parseFromString(xmlhttp.response, 'text/xml');
           if (xml.getElementsByTagName('return')[0].innerHTML === "200") {
             // ke homepage
-            console.log("masuk pak eko");
-            cookies.set('accountNumber',  accountNumber, { path: '/' });
+            // console.log(xml.getElementsByTagName('return'));
             window.location.replace("./homepage");
           } else {
             document.getElementById('noRekening').value = '';

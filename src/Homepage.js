@@ -29,23 +29,12 @@ class Homepage extends React.Component {
     // get cookie?
     var cookies = new Cookies();
     var accNum = 0;
-    // var name = "accountNumber" + "=";
-    // var ca = document.cookie.split(';');
-    // for(var i = 0; i < ca.length; i++) {
-    //   var c = ca[i];
-    //   while (c.charAt(0) == ' ') {
-    //     c = c.substring(1);
-    //   }
-    //   if (c.indexOf(name) == 0) {
-    //     accNum =  c.substring(name.length, c.length);
-    //   }
-    // }
+
     accNum = cookies.get('accountNumber');
     console.log(accNum);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST','http://localhost:8888/WebServiceBank?wsdl',true);
     var uName = '';
-    var accNum = 0;
     var bal = 0;
     // SOAP REQUEST
     var soapReq = 
@@ -63,7 +52,7 @@ class Homepage extends React.Component {
         if (xmlhttp.status === 200){
           var parser = new DOMParser();
           var xml = parser.parseFromString(xmlhttp.response, 'text/xml');
-          console.log(xml);
+          console.log(xml.getElementsByTagName('return'));
           var detail = xml.getElementsByTagName('return')[0];
           if (detail) {
             // ke homepage
