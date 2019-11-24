@@ -10,6 +10,33 @@ import {InputGroup, FormControl, Modal, Button, ButtonToolbar}
  */
 class Transfer extends React.Component {
   
+    // var xmlhttp = new XMLHttpRequest();
+    // xmlhttp.open('POST','http://localhost:8888/WebServiceBank?wsdl',true);
+
+    // //SOAP REQUEST
+    // var soapReq = 
+    //   `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kas="http://kasatukelima.wsbank/">
+    //     <soapenv:Header/>
+    //     <soapenv:Body>
+    //         <kas:validateAccountNumber>
+    //           <accountNumber>` + this.state.inputValue + `</accountNumber>
+    //         </kas:validateAccountNumber>
+    //     </soapenv:Body>
+    //   </soapenv:Envelope>`
+
+    // xmlhttp.setRequestHeader('Content-Type','text/xml8');
+    // xmlhttp.send(soapReq);
+    
+    // xmlhttp.onreadystatechange = function(){
+    //   if(xmlhttp.readyState === 4){
+    //     if (xmlhttp.status === 200){
+    //       console.log('Response: ' + xmlhttp.responseText);
+    //       // return <Redirect to="/homepage"></Redirect>;
+    //       // this.props.history.push("/homepage");
+    //     }
+    //   }
+    // }
+
   /**
    * render method.
    * @return {*} component.

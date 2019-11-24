@@ -17,31 +17,34 @@ class TransactionHistory extends React.Component {
   /**
    * reeWBS method.
    */
-  reqWBS() {
-    const xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('SOAP', 'http://localhost:8080/BankWebService/', true);
+  componentDidMount() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('POST','http://localhost:8888/WebServiceBank?wsdl',true);
 
-    // SOAP REQUEST
-    const soapReq =
-      `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ban="http://BankWebService/">
+    var accNum = 0;
+    //SOAP REQUEST
+    var soapReq = 
+      `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kas="http://kasatukelima.wsbank/">
         <soapenv:Header/>
-          <soapenv:Body>
-            <ban:getAccountDetail>
-                <accountNumber>` + this.state. + `</accountNumber>
-            </ban:getAccountDetail>
-          </soapenv:Body>
-      </soapenv:Envelope>`;
+        <soapenv:Body>
+            <kas:getAccountDetail>
+              <accountNumber>` + accNum + `</accountNumber>
+            </kas:getAccountDetail>
+        </soapenv:Body>
+      </soapenv:Envelope>`
 
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState === 4) {
-        if (xmlhttp.status === 200) {
-          alert('Response: ' + xmlhttp.response);
-          // result: xmlhttp.response.text;
-          // <Link to="/homepage"></Link>;
+    xmlhttp.setRequestHeader('Content-Type','text/xml8');
+    xmlhttp.send(soapReq);
+    
+    xmlhttp.onreadystatechange = function(){
+      if(xmlhttp.readyState === 4){
+        if (xmlhttp.status === 200){
+          console.log('Response: ' + xmlhttp.responseText);
+          // return <Redirect to="/homepage"></Redirect>;
+          // this.props.history.push("/homepage");
         }
       }
-    };
-    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    }
   }
 
   /**
@@ -103,15 +106,6 @@ class TransactionHistory extends React.Component {
   }
 }
 
-// SOAP Request
-// <?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-//     <SOAP-ENV:Header/>
-//     <S:Body xmlns:ns2="http://BankWebService/">
-//         <ns2:getAccountDetail>
-//             <accountNumber>30244228930887</accountNumber>
-//         </ns2:getAccountDetail>
-//     </S:Body>
-// </S:Envelope>
 
 // SOAP Response
 // <?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
