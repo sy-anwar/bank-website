@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header.js';
 import Modals from './Modals.js';
 import './App.css';
+// eslint-disable-next-line
 import {InputGroup, FormControl, Modal, Button, ButtonToolbar}
   from 'react-bootstrap';
 
@@ -9,8 +10,6 @@ import {InputGroup, FormControl, Modal, Button, ButtonToolbar}
  * Class Transfer.
  */
 class Transfer extends React.Component {
-  
-
   /**
    * render method.
    * @return {*} component.
@@ -22,9 +21,7 @@ class Transfer extends React.Component {
         <Header />
         <div className="container">
           <div className="row justify-content-md-center">
-            <div className="col col-lg-2">
-
-            </div>
+            <div className="col col-lg-2"></div>
             <div className="col-md-auto">
               <h1 className="greetings">Transfer</h1>
               <hr></hr>
@@ -36,18 +33,16 @@ class Transfer extends React.Component {
                   <InputGroup.Prepend>
                     <InputGroup.Text>Rp</InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl id="Nominal"
+                  <FormControl id="nominal"
                     aria-label="Amount (to the nearest rupiah)" />
                   <InputGroup.Append>
                     <InputGroup.Text>.00</InputGroup.Text>
                   </InputGroup.Append>
                 </InputGroup>
-
                 <Modals
                   show={mod.handleShow}
                   onHide={() => mod.handleShow(false)}
                 />
-
               </form>
             </div>
             <div className="col col-lg-2">

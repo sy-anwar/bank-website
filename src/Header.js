@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+// eslint-disable-next-line
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+// eslint-disable-next-line
 import {Navbar, Nav} from 'react-bootstrap';
 
 /**
@@ -16,7 +18,7 @@ class Header extends React.Component {
       <div className="Header">
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="/homepage">
-            <Link to="/homepage"><img src="tesuto.png"></img></Link>
+            <Link to="/homepage"><img src="tesuto.png" alt=""></img></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
